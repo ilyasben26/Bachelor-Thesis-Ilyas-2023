@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ilyas/ontologies/2023/1/"
+     xml:base="http://www.semanticweb.org/ilyas/ontologies/2023/1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/Aircraft -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Aircraft">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/Airport -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Airport">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/TransportationInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/Boat -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Boat">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/Watercraft"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/Bridge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Bridge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/TransportationInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/Car -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Car">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/LandVehicle"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/Train"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/Helicopter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Helicopter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/Aircraft"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/Plane"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/LandVehicle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/LandVehicle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/Plane -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Plane">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/Aircraft"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/Port -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Port">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/TransportationInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/Railroad -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Railroad">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/TransportationInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/Road -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Road">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/TransportationInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/Train -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Train">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/LandVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/TransportationInfrastructure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/TransportationInfrastructure">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/Tunnel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Tunnel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/TransportationInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/Vehicle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Vehicle"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ilyas/ontologies/2023/1/Watercraft -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Watercraft">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ilyas/ontologies/2023/1/Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Aircraft"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/LandVehicle"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Watercraft"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Airport"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Port"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Railroad"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Road"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1/Tunnel"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

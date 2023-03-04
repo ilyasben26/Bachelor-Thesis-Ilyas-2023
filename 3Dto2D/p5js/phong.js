@@ -1,3 +1,4 @@
+const fs = require('fs');
 let car;
 let car_texture;
 let sf = 3; // scaleFactor
@@ -11,7 +12,7 @@ let capture_flag = false;
 let radius = 200;
 
 function preload() {
-  car = loadModel('porsche.obj', true);
+  car = loadModel('audi.obj', true);
   //car = loadModel('./Trains/electrictrain.obj', true);
   
 }

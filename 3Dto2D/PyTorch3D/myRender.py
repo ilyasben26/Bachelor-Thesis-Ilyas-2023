@@ -3,15 +3,16 @@ import sys
 import torch
 import numpy as np
 import json
+from owlready2 import *
+import clip
+import PIL
+from PIL import Image
 
 import matplotlib.pyplot as plt
 from skimage.io import imread
 from utils import *
 
-# Util function for loading meshes
 from pytorch3d.io import load_obj
-
-# Data structures and functions for rendering
 from pytorch3d.structures import Meshes
 from pytorch3d.renderer import (
     look_at_view_transform,
@@ -28,6 +29,8 @@ from pytorch3d.renderer import (
     PointsRasterizationSettings,
     PointsRasterizer
 )
+
+## Pytorch3D Render Functions ##
 
 def bounding_sphere_exact_from_obj(obj_filename):
     """
@@ -99,8 +102,7 @@ def myRender(obj_filename, elevation, azim_angle, camera_dist, image_size, batch
     - camera_dist: camera distance from the model
     
     Returns:
-    - center: a numpy array of shape (3,) representing the center of the bounding sphere
-    - radius: a float representing the radius of the bounding sphere
+    - images: a list of tensor images of shape (batch_size ,image_size, image_size, 4)
     """
     if torch.cuda.is_available():
         device = torch.device("cuda:0")
@@ -108,83 +110,181 @@ def myRender(obj_filename, elevation, azim_angle, camera_dist, image_size, batch
     else:
         device = torch.device("cpu")
 
-    #params = Params("param.json")
     obj_filename = obj_filename
 
     # Get vertices, faces, and auxiliary information:
     verts, faces, aux = load_obj(
-    obj_filename,
-    device=device,
-    load_textures=True,
-    create_texture_atlas=True,
-    texture_atlas_size=4,
-    texture_wrap="repeat"
+        obj_filename,
+        device=device,
+        load_textures=True,
+        create_texture_atlas=True,
+        texture_atlas_size=4,
+        texture_wrap="repeat"
      )
 
     # Create a textures object
     atlas = aux.texture_atlas
 
-    # Initialize the mesh with vertices, faces, and textures.
-    # Created Meshes object
-    capsule_mesh = Meshes(
+    object_mesh = Meshes(
         verts=[verts],
         faces=[faces.verts_idx],
         textures=TexturesAtlas(atlas=[atlas]),)
     
     print('We have {0} vertices and {1} faces.'.format(verts.shape[0], faces.verts_idx.shape[0]))
 
-    # Initialize the camera with camera distance, elevation, and azimuth angle
-    R, T = look_at_view_transform(dist = camera_dist, elev = elevation, azim = azim_angle) 
+    #R, T = look_at_view_transform(dist = camera_dist, elev = elevation, azim = azim_angle) 
+    #cameras = FoVPerspectiveCameras(device=device, R=R, T=T)
+    
+    elev = torch.linspace(-360, 360, batch_size)
+    azim = torch.linspace(0, 330, batch_size)
+
+    R, T = look_at_view_transform(dist = camera_dist, elev = elevation, azim = azim)
+
     cameras = FoVPerspectiveCameras(device=device, R=R, T=T)
 
-    # Here we set the output image to be of size 256 x 256 based on config.json 
     raster_settings = RasterizationSettings(
         image_size = image_size, 
         blur_radius = 0.0, 
         faces_per_pixel = 1, 
     )
 
-    # Initialize rasterizer by using a MeshRasterizer class
     rasterizer = MeshRasterizer(
         cameras=cameras, 
         raster_settings=raster_settings
     )
 
-    # The textured phong shader interpolates the texture uv coordinates for 
-    # each vertex, and samples from a texture image.
+  
     shader = SoftPhongShader(device = device, cameras = cameras)
-
-    # Create a mesh renderer by composing a rasterizer and a shader
+   
     renderer = MeshRenderer(rasterizer, shader)
+ 
+    meshes = object_mesh.extend(batch_size)
 
-    # Render Meshes object
-    #image = renderer(capsule_mesh)
-    # Plot rendered image
-    #plt.figure(figsize=(10, 10))
-    #plt.imshow(image[0, ..., :3].cpu().numpy())
-    #plt.grid("off");
-    #plt.axis("off");
-    # The batch size represents the number of different viewpoints from which we 
-    # want to render the mesh.
-    # batch_size = 12
+    #elev = torch.linspace(-360, 360, batch_size)
+    #azim = torch.linspace(0, 330, batch_size)
 
-    # Create a batch of meshes by repeating the capsule mesh and associated textures. 
-    # Meshes has a useful `extend` method which allows us do this very easily. 
-    meshes = capsule_mesh.extend(batch_size)
+    #R, T = look_at_view_transform(dist = camera_dist, elev = elevation, azim = azim)
 
-    # Get a batch of viewing angles. 
-    elev = torch.linspace(-360, 360, batch_size)
-    azim = torch.linspace(0, 330, batch_size)
+    #cameras = FoVPerspectiveCameras(device=device, R=R, T=T)
 
-    # All the cameras helper methods support mixed type inputs and broadcasting. So we can 
-    # view the camera from the same distance and then specify elevation and azimuth angles 
-    # for each viewpoint as tensors. 
-    R, T = look_at_view_transform(dist = camera_dist, elev = elevation, azim = azim)
-
-    cameras = FoVPerspectiveCameras(device=device, R=R, T=T)
-
-    # We can pass arbirary keyword arguments to the rasterizer/shader via the renderer
-    # so the renderer does not need to be reinitialized if any of the settings change.
     images = renderer(meshes, cameras=cameras)
 
     return images
+
+def tensor_to_image(tensor):
+    """
+    Transform a tensor images generated by the renderer to a PIL image.
+    
+    Args:
+    - tensor: Tensor image of shape (w, h, 3)
+    
+    Returns:
+    - PIL image
+    """
+    
+    tensor = tensor*255
+    tensor = np.array(tensor, dtype=np.uint8)
+    if np.ndim(tensor)>3:
+        assert tensor.shape[0] == 1
+        tensor = tensor[0]
+    
+    return PIL.Image.fromarray(tensor)
+
+def tensor_to_PIL_images(tensors):
+    """
+    Transforms tensor images generated by the renderer to PIL images.
+    
+    Args:
+    - tensors: list of tensor images of shape (w, h, 4)
+    
+    Returns:
+    - images_PIL: list of PIL images
+    """
+    images_PIL = []
+    for i in range(tensors.shape[0]):
+        images_PIL.append(tensor_to_image(tensors[i][..., :3]))
+    return images_PIL
+
+
+## Ontology and CLIP Functions ##
+
+def fetch_ontology(path):
+    return get_ontology("file://"+path).load()
+
+def image_to_probs(file_path, classes_strings):
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model, preprocess = clip.load("ViT-B/32", device=device)
+    
+    image = preprocess(Image.open(file_path)).unsqueeze(0).to(device)
+    text = clip.tokenize(classes_strings).to(device)
+
+    with torch.no_grad():
+        image_features = model.encode_image(image)
+        text_features = model.encode_text(text)
+    
+        logits_per_image, logits_per_text = model(image, text)
+        probs = logits_per_image.softmax(dim=-1).cpu().numpy()
+    
+    return probs
+
+
+def find_root_classes(ontology):
+    # find one class that has owl.Thing as a parent 
+    for OntoClass in ontology.classes():
+        if(OntoClass.is_a[0].iri == "http://www.w3.org/2002/07/owl#Thing"):
+            # then use it to find all the highest level classes
+            return list(OntoClass.is_a[0].subclasses())
+    
+def convert_classes_to_strings(classes):
+    output_list = list(map(lambda x: x.name, classes))
+    return output_list
+
+def format_output(classes, probs):
+    txt = ""
+    template = "{_class}: {_prob}\n"
+    for i in range(len(classes)):
+        txt += template.format(_class=classes[i], _prob=probs[i])
+    txt += "------------------------"
+    return txt
+
+
+def get_children(ontoClass):
+    return list(ontoClass.subclasses())
+
+def main_process(ontology_path, image_path):
+    # Assumptions
+    # 1. There exists root level classes (i.e the ontology is not empty)
+    log = ""
+    # fetching the ontology
+    ontology = fetch_ontology(ontology_path)
+    # fetching the root classes
+    current_ontology_level = find_root_classes(ontology)
+    current_ontology_level_strings = convert_classes_to_strings(current_ontology_level)
+    prob_list = image_to_probs(image_path, current_ontology_level_strings)[0].tolist()
+    #print('------------------------')
+    #print(format_output(current_ontology_level_strings, prob_list))
+    log += format_output(current_ontology_level_strings, prob_list)
+    
+    while True:
+        max_index = prob_list.index(max(prob_list))
+        chosen_class = current_ontology_level[max_index]
+
+        #print(chosen_class.name + ': ' + str(prob_list[max_index]) + '\n------------------------')
+        log += '\n'+ chosen_class.name + ': ' + str(prob_list[max_index]) + '\n------------------------\n'
+
+        current_ontology_level = get_children(chosen_class)
+        if current_ontology_level == []:
+            #print("It's a " + chosen_class.name + '.')
+            #print('------------------------')
+            log += "\nResult: " + chosen_class.name + '\n------------------------'
+            return chosen_class.name, log
+        current_ontology_level_strings = convert_classes_to_strings(current_ontology_level)
+        prob_list = image_to_probs(image_path, current_ontology_level_strings)[0].tolist()
+        #print(format_output(current_ontology_level_strings, prob_list))
+        log += format_output(current_ontology_level_strings, prob_list)
+
+
+    print(log)
+    
+
+    return 

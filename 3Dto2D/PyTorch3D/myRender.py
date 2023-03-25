@@ -8,6 +8,8 @@ import clip
 import PIL
 from PIL import Image
 
+from transformers import CLIPProcessor, CLIPModel
+
 import matplotlib.pyplot as plt
 from skimage.io import imread
 from utils import *
@@ -112,7 +114,7 @@ def myRender(obj_filename, elevation, azim_angle, camera_dist, image_size, batch
 
     obj_filename = obj_filename
 
-    # Get vertices, faces, and auxiliary information:
+   
     verts, faces, aux = load_obj(
         obj_filename,
         device=device,
@@ -122,7 +124,7 @@ def myRender(obj_filename, elevation, azim_angle, camera_dist, image_size, batch
         texture_wrap="repeat"
      )
 
-    # Create a textures object
+
     atlas = aux.texture_atlas
 
     object_mesh = Meshes(
@@ -159,13 +161,6 @@ def myRender(obj_filename, elevation, azim_angle, camera_dist, image_size, batch
     renderer = MeshRenderer(rasterizer, shader)
  
     meshes = object_mesh.extend(batch_size)
-
-    #elev = torch.linspace(-360, 360, batch_size)
-    #azim = torch.linspace(0, 330, batch_size)
-
-    #R, T = look_at_view_transform(dist = camera_dist, elev = elevation, azim = azim)
-
-    #cameras = FoVPerspectiveCameras(device=device, R=R, T=T)
 
     images = renderer(meshes, cameras=cameras)
 
@@ -206,26 +201,32 @@ def tensor_to_PIL_images(tensors):
     return images_PIL
 
 
-## Ontology and CLIP Functions ##
+## CLIP Functions ##
+def PIL_image_to_probs(image, classes_strings):
+    """
+    runs CLIP on PIL image with given classes
+    
+    Args:
+    - image: a PIL image
+    
+    Returns:
+    - probs: list of probabilities of shape (len(classes_strings))
+    """
+    
+    model = CLIPModel.from_pretrained("openai/clip-vit-large-patch14")
+    processor = CLIPProcessor.from_pretrained("openai/clip-vit-large-patch14")
+    
+    inputs = processor(text=classes_strings, images=image, return_tensors="pt", padding=True)
+    outputs = model(**inputs)
+    logits_per_image = outputs.logits_per_image # this is the image-text similarity score
+    probs = logits_per_image.softmax(dim=1).cpu().detach().numpy() # we can take the softmax to get the label probabilities
+    
+    return probs[0].tolist()
+
+## Ontology Functions ##
 
 def fetch_ontology(path):
     return get_ontology("file://"+path).load()
-
-def image_to_probs(file_path, classes_strings):
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    model, preprocess = clip.load("ViT-B/32", device=device)
-    
-    image = preprocess(Image.open(file_path)).unsqueeze(0).to(device)
-    text = clip.tokenize(classes_strings).to(device)
-
-    with torch.no_grad():
-        image_features = model.encode_image(image)
-        text_features = model.encode_text(text)
-    
-        logits_per_image, logits_per_text = model(image, text)
-        probs = logits_per_image.softmax(dim=-1).cpu().numpy()
-    
-    return probs
 
 
 def find_root_classes(ontology):
@@ -239,52 +240,41 @@ def convert_classes_to_strings(classes):
     output_list = list(map(lambda x: x.name, classes))
     return output_list
 
-def format_output(classes, probs):
-    txt = ""
-    template = "{_class}: {_prob}\n"
-    for i in range(len(classes)):
-        txt += template.format(_class=classes[i], _prob=probs[i])
-    txt += "------------------------"
-    return txt
-
 
 def get_children(ontoClass):
     return list(ontoClass.subclasses())
 
-def main_process(ontology_path, image_path):
-    # Assumptions
-    # 1. There exists root level classes (i.e the ontology is not empty)
-    log = ""
-    # fetching the ontology
+def predict_image_ontology (pil_image, ontology_path, print_flag):
     ontology = fetch_ontology(ontology_path)
-    # fetching the root classes
     current_ontology_level = find_root_classes(ontology)
     current_ontology_level_strings = convert_classes_to_strings(current_ontology_level)
-    prob_list = image_to_probs(image_path, current_ontology_level_strings)[0].tolist()
-    #print('------------------------')
-    #print(format_output(current_ontology_level_strings, prob_list))
-    log += format_output(current_ontology_level_strings, prob_list)
+    prob_list = PIL_image_to_probs(pil_image, current_ontology_level_strings)
+    
+    if(print_flag):
+        print('------------------------')
+        print(current_ontology_level_strings)
+        print(prob_list)
     
     while True:
         max_index = prob_list.index(max(prob_list))
+        
         chosen_class = current_ontology_level[max_index]
-
-        #print(chosen_class.name + ': ' + str(prob_list[max_index]) + '\n------------------------')
-        log += '\n'+ chosen_class.name + ': ' + str(prob_list[max_index]) + '\n------------------------\n'
-
+        
+        if(print_flag):
+            print(chosen_class.name + ': ' + str(prob_list[max_index]) + '\n------------------------')
+        
         current_ontology_level = get_children(chosen_class)
+        
         if current_ontology_level == []:
-            #print("It's a " + chosen_class.name + '.')
-            #print('------------------------')
-            log += "\nResult: " + chosen_class.name + '\n------------------------'
-            return chosen_class.name, log
+            if(print_flag):
+                print("It's a " + chosen_class.name + '.')
+                print('------------------------')
+            return (prob_list[max_index], chosen_class.name)
+            
         current_ontology_level_strings = convert_classes_to_strings(current_ontology_level)
-        prob_list = image_to_probs(image_path, current_ontology_level_strings)[0].tolist()
-        #print(format_output(current_ontology_level_strings, prob_list))
-        log += format_output(current_ontology_level_strings, prob_list)
+        prob_list = PIL_image_to_probs(pil_image, current_ontology_level_strings)
+        
+        if(print_flag):
+            print(current_ontology_level_strings)
+            print(prob_list)
 
-
-    print(log)
-    
-
-    return 

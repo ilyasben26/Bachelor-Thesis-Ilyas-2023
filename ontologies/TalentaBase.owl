@@ -1,0 +1,306 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#"
+     xml:base="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta">
+        <owl:versionIRI rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta/base"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#hasGeolocation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#hasGeolocation">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Asset"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Geolocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#hasGeometry -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#hasGeometry">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Asset"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Geometry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#hasProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#hasProperty">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Asset"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#MaterialProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#hasSensor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#hasSensor">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Asset"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Sensor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#hasSleeper -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#hasSleeper">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Railway"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#RailwaySleeper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#hasTime -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#hasTime">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Asset"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Time"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#AirVehicle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#AirVehicle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Asset -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Asset"/>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Automobile -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Automobile">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#LandVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Bicycle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Bicycle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#LandVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Bridge -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Bridge">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Infrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Car -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Car">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#LandVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Geolocation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Geolocation"/>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Geometry -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Geometry"/>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Infrastructure -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Infrastructure">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Asset"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#LandVehicle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#LandVehicle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#MaterialProperty -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#MaterialProperty"/>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Motorcycle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Motorcycle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#LandVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Railway -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Railway">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Infrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#RailwaySleeper -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#RailwaySleeper">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Infrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Road -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Road">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Infrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Scooter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Scooter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#LandVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Sensor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Sensor"/>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Time -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Time"/>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Train -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Train">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#LandVehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Vehicle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Vehicle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Asset"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#WaterVehicle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#WaterVehicle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#AirVehicle"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#LandVehicle"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#WaterVehicle"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Asset"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Geolocation"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Geometry"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Infrastructure"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#MaterialProperty"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Sensor"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Time"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Vehicle"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Bicycle"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Car"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Motorcycle"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Scooter"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Train"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Bridge"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Railway"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#RailwaySleeper"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/annasv/ontologies/2023/2/talenta#Road"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

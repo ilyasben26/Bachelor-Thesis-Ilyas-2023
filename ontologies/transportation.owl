@@ -1,0 +1,306 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.semanticweb.org/ilyas/ontologies/2023/1/"
+         xmlns="http://www.semanticweb.org/ilyas/ontologies/2023/1/">
+
+<owl:Ontology rdf:about="http://www.semanticweb.org/ilyas/ontologies/2023/1"/>
+
+<owl:DatatypeProperty rdf:about="color">
+  <rdfs:domain rdf:resource="Vehicle"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  <rdfs:comment>["red","blue","green","yellow","white","silver","black"]</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="Vehicle"/>
+
+<owl:Class rdf:about="Aircraft">
+  <rdfs:subClassOf rdf:resource="Vehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="Airport">
+  <rdfs:subClassOf rdf:resource="TransportationInfrastructure"/>
+</owl:Class>
+
+<owl:Class rdf:about="TransportationInfrastructure">
+  <owl:disjointWith rdf:resource="Vehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="Boat">
+  <rdfs:subClassOf rdf:resource="Watercraft"/>
+</owl:Class>
+
+<owl:Class rdf:about="Watercraft">
+  <rdfs:subClassOf rdf:resource="Vehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="Bridge">
+  <rdfs:subClassOf rdf:resource="TransportationInfrastructure"/>
+</owl:Class>
+
+<owl:Class rdf:about="Car">
+  <rdfs:subClassOf rdf:resource="LandVehicle"/>
+  <owl:disjointWith rdf:resource="Train"/>
+</owl:Class>
+
+<owl:Class rdf:about="LandVehicle">
+  <rdfs:subClassOf rdf:resource="Vehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="Train">
+  <rdfs:subClassOf rdf:resource="LandVehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="Helicopter">
+  <rdfs:subClassOf rdf:resource="Aircraft"/>
+  <owl:disjointWith rdf:resource="Plane"/>
+</owl:Class>
+
+<owl:Class rdf:about="Plane">
+  <rdfs:subClassOf rdf:resource="Aircraft"/>
+</owl:Class>
+
+<owl:Class rdf:about="Port">
+  <rdfs:subClassOf rdf:resource="TransportationInfrastructure"/>
+</owl:Class>
+
+<owl:Class rdf:about="Railroad">
+  <rdfs:subClassOf rdf:resource="TransportationInfrastructure"/>
+</owl:Class>
+
+<owl:Class rdf:about="Road">
+  <rdfs:subClassOf rdf:resource="TransportationInfrastructure"/>
+</owl:Class>
+
+<owl:Class rdf:about="Tunnel">
+  <rdfs:subClassOf rdf:resource="TransportationInfrastructure"/>
+</owl:Class>
+
+<Car rdf:about="Car_1">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment>test</rdfs:comment>
+</Car>
+
+<Car rdf:about="Car_2">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Car>
+
+<Vehicle rdf:about="car01">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Vehicle>
+
+<Car rdf:about="car_0">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Car>
+
+<Vehicle rdf:about="sample_vehicle">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <color>green</color>
+</Vehicle>
+
+<Car rdf:about="Car_3">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/15/2023, 17:58:40", "source_obj": "data/Jeep_Renegade_2016_obj/Jeep_Renegade_2016.obj"}</rdfs:comment>
+  <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">white</color>
+</Car>
+
+<Car rdf:about="Car_4">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/16/2023, 08:39:13", "source_obj": "data/Jeep_Renegade_2016_obj/Jeep_Renegade_2016.obj"}</rdfs:comment>
+  <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">white</color>
+</Car>
+
+<Car rdf:about="Car_5">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/16/2023, 08:48:30", "source_obj": "data/Jeep_Renegade_2016_obj/Jeep_Renegade_2016.obj"}</rdfs:comment>
+</Car>
+
+<Car rdf:about="Car_6">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/16/2023, 08:50:37", "source_obj": "data/Jeep_Renegade_2016_obj/Jeep_Renegade_2016.obj"}</rdfs:comment>
+  <color rdf:datatype="http://www.w3.org/2001/XMLSchema#string">white</color>
+</Car>
+
+<Car rdf:about="Car_7">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/21/2023, 16:08:16", "source_obj": "data/Jeep_Renegade_2016_obj/Jeep_Renegade_2016.obj"}</rdfs:comment>
+</Car>
+
+<Car rdf:about="Car_8">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/21/2023, 16:55:08", "source_obj": "data/Jeep_Renegade_2016_obj/Jeep_Renegade_2016.obj"}</rdfs:comment>
+</Car>
+
+<Car rdf:about="Car_9">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/21/2023, 16:59:21", "source_obj": "data/Jeep_Renegade_2016_obj/Jeep_Renegade_2016.obj"}</rdfs:comment>
+</Car>
+
+<Car rdf:about="Car_10">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/22/2023, 07:13:16", "source_obj": "data/Jeep_Renegade_2016_obj/Jeep_Renegade_2016.obj"}</rdfs:comment>
+</Car>
+
+<Car rdf:about="Car_11">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/26/2023, 16:53:39", "source_obj": "data/Jeep_Renegade_2016_obj/Jeep_Renegade_2016.obj"}</rdfs:comment>
+</Car>
+
+<Car rdf:about="Car_12">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/26/2023, 16:55:52", "source_obj": "data/subaru/_Subaru-Loyale.obj"}</rdfs:comment>
+</Car>
+
+<Car rdf:about="Car_13">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/26/2023, 16:57:07", "source_obj": "data/suv/car.obj"}</rdfs:comment>
+</Car>
+
+<Car rdf:about="Car_14">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/26/2023, 16:58:24", "source_obj": "data/sport/low_poly_car_obj.obj"}</rdfs:comment>
+</Car>
+
+<Helicopter rdf:about="Helicopter_0">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/26/2023, 16:59:37", "source_obj": "data/lowpolycar/CARMODEL.obj"}</rdfs:comment>
+</Helicopter>
+
+<Helicopter rdf:about="Helicopter_1">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:15:20", "source_obj": "data/OH-58D/OH-58D.obj"}</rdfs:comment>
+</Helicopter>
+
+<Helicopter rdf:about="Helicopter_2">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:17:43", "source_obj": "data/heli/raven.obj"}</rdfs:comment>
+</Helicopter>
+
+<Helicopter rdf:about="Helicopter_3">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:20:02", "source_obj": "data/uh60/uh60.obj"}</rdfs:comment>
+</Helicopter>
+
+<Helicopter rdf:about="Helicopter_4">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:22:53", "source_obj": "data/412/412.obj"}</rdfs:comment>
+</Helicopter>
+
+<Helicopter rdf:about="Helicopter_5">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:24:53", "source_obj": "data/v22/v22.obj"}</rdfs:comment>
+</Helicopter>
+
+<Plane rdf:about="Plane_0">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:26:49", "source_obj": "data/FA-18F/FA-18F.obj"}</rdfs:comment>
+</Plane>
+
+<Plane rdf:about="Plane_1">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:28:28", "source_obj": "data/Su-34/Su-34.obj"}</rdfs:comment>
+</Plane>
+
+<Plane rdf:about="Plane_2">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:30:14", "source_obj": "data/bf109/Bf109G.obj"}</rdfs:comment>
+</Plane>
+
+<Plane rdf:about="Plane_3">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:32:23", "source_obj": "data/jet/plane.obj"}</rdfs:comment>
+</Plane>
+
+<Plane rdf:about="Plane_4">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:35:11", "source_obj": "data/airbus/caravelle.obj"}</rdfs:comment>
+</Plane>
+
+<Helicopter rdf:about="Helicopter_6">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:36:37", "source_obj": "data/electrictrain/electrictrain.obj"}</rdfs:comment>
+</Helicopter>
+
+<Train rdf:about="Train_0">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:41:11", "source_obj": "data/old/train.obj"}</rdfs:comment>
+</Train>
+
+<Train rdf:about="Train_1">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:44:01", "source_obj": "data/tram/train.obj"}</rdfs:comment>
+</Train>
+
+<Train rdf:about="Train_2">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:52:55", "source_obj": "data/wap7/WAP7.obj"}</rdfs:comment>
+</Train>
+
+<Train rdf:about="Train_3">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:53:55", "source_obj": "data/lowpolytrain/lowpoly_train.obj"}</rdfs:comment>
+</Train>
+
+<Railroad rdf:about="Railroad_0">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:54:58", "source_obj": "data/railway/Rotaia.obj"}</rdfs:comment>
+</Railroad>
+
+<Bridge rdf:about="Bridge_0">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 08:56:01", "source_obj": "data/bridge/bridge.obj"}</rdfs:comment>
+</Bridge>
+
+<Bridge rdf:about="Bridge_1">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 09:07:52", "source_obj": "data/longbridge/bridge.obj"}</rdfs:comment>
+</Bridge>
+
+<Helicopter rdf:about="Helicopter_7">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 14:01:05", "source_obj": "data/lowpolycar/CARMODEL.obj"}</rdfs:comment>
+</Helicopter>
+
+<Helicopter rdf:about="Helicopter_8">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 14:03:36", "source_obj": "data/lowpolycar/CARMODEL.obj"}</rdfs:comment>
+</Helicopter>
+
+<Helicopter rdf:about="Helicopter_9">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 14:09:12", "source_obj": "data/lowpolycar/CARMODEL.obj"}</rdfs:comment>
+</Helicopter>
+
+<Train rdf:about="Train_4">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 14:12:25", "source_obj": "data/electrictrain/electrictrain.obj"}</rdfs:comment>
+</Train>
+
+<Car rdf:about="Car_15">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">{"creation_date": "04/27/2023, 14:56:48", "source_obj": "data/Jeep_Renegade_2016_obj/Jeep_Renegade_2016.obj"}</rdfs:comment>
+</Car>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="Aircraft"/>
+    <rdf:Description rdf:about="LandVehicle"/>
+    <rdf:Description rdf:about="Watercraft"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="Airport"/>
+    <rdf:Description rdf:about="Bridge"/>
+    <rdf:Description rdf:about="Port"/>
+    <rdf:Description rdf:about="Railroad"/>
+    <rdf:Description rdf:about="Road"/>
+    <rdf:Description rdf:about="Tunnel"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+
+</rdf:RDF>

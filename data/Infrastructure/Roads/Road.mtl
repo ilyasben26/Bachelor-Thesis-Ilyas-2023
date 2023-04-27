@@ -1,0 +1,47 @@
+# Blender MTL File: 'Rainy Road.blend'
+# Material Count: 4
+
+newmtl Material.001
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd -s -0.010000 1.000000 1.000000 texture\\Cement Wallpapers HD.jpg
+
+newmtl Material.002
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd -s 2.100000 1.000000 1.000000 texture\\pavement_22-1K\\pavement_22-1K\\pavement_22_basecolor-1K.png
+refl texture\\pavement_22-1K\\pavement_22-1K\\pavement_22_metallic-1K.png
+
+newmtl Material.003
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd -s 18.400000 1.000000 1.000000 texture\\wp2457237-yellow-and-black-wallpapers.jpg
+
+newmtl Road
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd texture\\CityStreetRoadAsphaltTwoLaneWorn001\\CityStreetRoadAsphaltTwoLaneWorn001_COL_1K.jpg

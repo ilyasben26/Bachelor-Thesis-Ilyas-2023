@@ -1,0 +1,290 @@
+newmtl Meshes141Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes141_diff.png
+map_Kd Meshes141_diff.png
+map_d Meshes141_diff.png
+
+newmtl Meshes261Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes261_diff.png
+map_Kd Meshes261_diff.png
+map_d Meshes261_diff.png
+
+newmtl Meshes131Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes131_diff.png
+map_Kd Meshes131_diff.png
+map_d Meshes131_diff.png
+
+newmtl Meshes121Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes121_diff.png
+map_Kd Meshes121_diff.png
+map_d Meshes121_diff.png
+
+newmtl Meshes101Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes101_diff.png
+map_Kd Meshes101_diff.png
+map_d Meshes101_diff.png
+
+newmtl Meshes321Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes321_diff.png
+map_Kd Meshes321_diff.png
+map_d Meshes321_diff.png
+
+newmtl Meshes271Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes271_diff.png
+map_Kd Meshes271_diff.png
+map_d Meshes271_diff.png
+
+newmtl Meshes31Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes31_diff.png
+map_Kd Meshes31_diff.png
+map_d Meshes31_diff.png
+
+newmtl Meshes281Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes281_diff.png
+map_Kd Meshes281_diff.png
+map_d Meshes281_diff.png
+
+newmtl Meshes221Mtl
+Material Color
+Ka 0.124741 0.113921 0.121986
+Kd 0.124741 0.113921 0.121986
+Ks 0.0494072 0.0451216 0.0483159 
+
+d 1
+
+Ns 0
+
+newmtl Meshes241Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes241_diff.png
+map_Kd Meshes241_diff.png
+map_d Meshes241_diff.png
+
+newmtl Meshes11Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes11_diff.png
+map_Kd Meshes11_diff.png
+map_d Meshes11_diff.png
+
+newmtl Meshes451Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes451_diff.png
+map_Kd Meshes451_diff.png
+map_d Meshes451_diff.png
+
+newmtl Meshes441Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes441_diff.png
+map_Kd Meshes441_diff.png
+map_d Meshes441_diff.png
+
+newmtl Meshes411Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes411_diff.png
+map_Kd Meshes411_diff.png
+map_d Meshes411_diff.png
+
+newmtl Meshes81Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes81_diff.png
+map_Kd Meshes81_diff.png
+map_d Meshes81_diff.png
+
+newmtl Meshes231Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes231_diff.png
+map_Kd Meshes231_diff.png
+map_d Meshes231_diff.png
+
+newmtl Meshes71Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes71_diff.png
+map_Kd Meshes71_diff.png
+map_d Meshes71_diff.png
+
+newmtl Meshes251Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes251_diff.png
+map_Kd Meshes251_diff.png
+map_d Meshes251_diff.png
+
+newmtl Meshes91Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes91_diff.png
+map_Kd Meshes91_diff.png
+map_d Meshes91_diff.png
+
+newmtl Meshes421Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshes421_diff.png
+map_Kd Meshes421_diff.png
+map_d Meshes421_diff.png
+

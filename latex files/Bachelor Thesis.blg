@@ -1,0 +1,66 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Bachelor Thesis.aux
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: IEEEabrv.bib
+Database file #2: ./bsc-sample.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty booktitle in Glaessgen2012TheDT
+Too many commas in name 1 of "Markus Sommer, Josip Stjepandić, Sebastian Stobrawa, Moritz von Soden" for entry objectdetectionDT
+while executing---line 2403 of file IEEEtran.bst
+Warning--missing publisher in DTdefinition
+Warning--empty booktitle in inproceedings
+Warning--missing publisher in inbook
+Warning--empty booktitle in biomed
+Warning--empty journal in ritter
+
+Done.
+You've used 48 entries,
+            4087 wiz_defined-function locations,
+            1593 strings with 26499 characters,
+and the built_in function-call counts, 29278 in all, are:
+= -- 2119
+> -- 870
+< -- 151
++ -- 457
+- -- 184
+* -- 1311
+:= -- 4356
+add.period$ -- 86
+call.type$ -- 48
+change.case$ -- 50
+chr.to.int$ -- 351
+cite$ -- 54
+duplicate$ -- 2170
+empty$ -- 2541
+format.name$ -- 209
+if$ -- 6783
+int.to.chr$ -- 0
+int.to.str$ -- 48
+missing$ -- 473
+newline$ -- 217
+num.names$ -- 46
+pop$ -- 1355
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 2203
+stack$ -- 0
+substring$ -- 894
+swap$ -- 1594
+text.length$ -- 34
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 48
+warning$ -- 6
+while$ -- 96
+width$ -- 50
+write$ -- 466
+(There was 1 error message)

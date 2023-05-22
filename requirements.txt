@@ -8,4 +8,4 @@ numpy==1.24.2
 pytorch3d==0.7.2
 torch==1.13.1
 torchvision==0.14.1
-scikit-image=0.19.3
+scikit-image==0.19.3

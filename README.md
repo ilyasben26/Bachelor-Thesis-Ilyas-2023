@@ -9,4 +9,4 @@ pip install git+https://github.com/openai/CLIP.git
 pip install "git+https://github.com/facebookresearch/pytorch3d.git"
 ```
 ## Running the process
-To do, simply check the steps in `Workflow Complete.ipynb`
+To do so, simply check the steps in `Workflow Complete.ipynb`

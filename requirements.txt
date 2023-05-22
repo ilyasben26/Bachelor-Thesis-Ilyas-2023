@@ -2,7 +2,6 @@ matplotlib==3.7.0
 matplotlib-inline==0.1.6
 transformers==4.29.2
 Pillow==9.4.0
-clip==1.0
 Owlready2==0.40
 numpy==1.24.2
 pytorch3d==0.7.2

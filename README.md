@@ -1,4 +1,6 @@
 # Bachelor-Thesis-Ilyas-2023
+### [Read here](https://github.com/ilyasben26/Bachelor-Thesis-Ilyas-2023/blob/main/latex%20files/Bachelor%20Thesis.pdf)
+
 ## Installing the required packages
 ```
 pip install -r requirements.txt
